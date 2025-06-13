@@ -1,4 +1,4 @@
-# Functioning Prototype – “Seeing the Void”
+# Functioning Prototype of individual artwork – ‘Gaze of Fortune’
 
 ## Overview
 My individual prototype draws on Pacita Abad’s Wheels of Fortune (2000) by focusing on the eye motif from group work, symbolic of observation and introspection, within a swirling wheel of textures and shapes. In Abad’s original work, concentric circles of trapunto, beading, and collage evoke the cycles of fate, migration, and cultural exchange. My idea is to introduce noise to create movement to one of the motifs from group work to represent theme of witnessing the world’s interconnected stories through a diverse tapestry of forms and hues.
