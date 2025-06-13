@@ -1,6 +1,9 @@
 //Individual sketch Yin Ye yiye0713
 //Animation method: Perlin noise. Please refer to README.md for more details
 
+//Hold sound object in global
+let bgMusic
+
 //Define pupil color palette from full palette (outer -> inner)
 const pupilPalette = [
   "#AED581", "#B2DFDB", "#0097A7", "#5C91A1", "#0D0477",
@@ -25,9 +28,19 @@ const sizePercents = [0.48, 0.40, 0.35, 0.30, 0.25, 0.20, 0.10];
 //Set array of noise-speed factors for variety (one per circle)
 const factors = [0.002, 0.003, 0.004, 0.005, 0.006, 0.007, 0.008];
 
+function preload() {
+  //load the local MP3
+  bgMusic = loadSound('libraries/background.mp3');
+}
+
 function setup() {
   //Create a responsive canvas where the artwork would fit the whole width
   createCanvas(windowWidth, windowHeight);
+  
+  //start the music looping at half volume immediately. Coding Train example: "Intro to p5.Sound" tutorial by Daniel Shiffman https://www.youtube.com/watch?v=6O6g4xZqfUo
+  bgMusic.setLoop(true);
+  bgMusic.setVolume(0.5);
+  bgMusic.play();
 
   //one pupilCircle per palette
   for (let i = 0; i < pupilPalette.length; i++) {
@@ -174,6 +187,16 @@ class pupilCircle {
     
     //Move along the noise curve for next frame to change size
     this.noiseOffset += this.factor;
+  }
+}
+
+//Initally the music won't play, console error message is p5.sound.min.js:2 The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page.
+//Added keyPressed use input to initialise music
+function keyPressed() {
+  if (bgMusic.isPlaying()) {
+    bgMusic.pause();
+  } else {
+    bgMusic.loop();
   }
 }
 
